@@ -11,14 +11,14 @@ model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
   name  String?
-  content Content[]
+  notes Note[]
+  deletedAt DateTime?
 }
 
-model Content {
+model Note {
   id        Int     @id @default(autoincrement())
-  contentId Int?
   title     String
-  body   String?
+  content   String?
   createdAt DateTime @default(now())
   updatedAt DateTime?
   deletedAt DateTime?
