@@ -7,10 +7,11 @@ import ResponseData from "../common/responseData"
 const createNote = async (request: Request): Promise<ResponseData> => {
   const title: string = requireTitle(request)
   const { content } = request.body
+
   const note: Note = await prisma.note.create({
     data: {
       title,
-      content,
+      content: content,
       authorId: 1
     },
   })
