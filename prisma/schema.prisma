@@ -10,7 +10,9 @@ datasource db {
 model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
+  username String
   name  String?
+  githubId String?
   notes Note[]
   deletedAt DateTime?
 }
@@ -22,7 +24,6 @@ model Note {
   createdAt DateTime @default(now())
   updatedAt DateTime?
   deletedAt DateTime?
-  published Boolean @default(false)
   author    User    @relation(fields: [authorId], references: [id])
   authorId  Int
 }
